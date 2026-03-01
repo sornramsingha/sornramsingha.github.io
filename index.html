@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <style>
-        /* ส่วนตกแต่งความสวยงาม (CSS) */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -42,10 +41,9 @@
             margin-right: 5px;
             margin-bottom: 10px;
         }
-        /* ทำให้วิดีโอปรับขนาดตามหน้าจออัตโนมัติ */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
@@ -64,40 +62,71 @@
 <body>
 
     <header>
-        <h1>ชื่อ - นามสกุล ของคุณ</h1>
-        <p>Game Developer / 3D Artist | นักศึกษาฝึกงาน</p>
+        <h1>Sornram Singha ศรราม สิงหา</h1>
+        <p>Game Developer / Game Designer | นักศึกษาฝึกงาน</p>
     </header>
 
     <div class="container">
-        <h2>ผลงานที่โดดเด่น (Projects)</h2>
+        <h2>โปรเจกต์ผลงานที่ทำ (Projects)</h2>
 
         <div class="project-card">
-            <h3>โปรเจกต์เกมผจญภัยแนว RPG</h3>
+            <h3>โปรเจกต์ผลงานเกมไฟนอล 2D Ball Adventure</h3>
             <div>
                 <span class="tech-tag">Unity</span>
                 <span class="tech-tag">C#</span>
             </div>
-            <p><strong>หน้าที่รับผิดชอบ:</strong> เขียนระบบควบคุมตัวละคร, จัดการระบบ Inventory และออกแบบด่าน (Level Design)</p>
-            <p><strong>รายละเอียด:</strong> เกม RPG มุมมองบุคคลที่สามที่พัฒนาขึ้นเพื่อฝึกฝนการเขียนสคริปต์และการจัดการ State Machine</p>
+            
+            <p><strong>หน้าที่รับผิดชอบ:</strong> เขียนระบบการควบคุมเเละระบบเกมเพลย์ภายในเกม, ออกแบบแผนที่เเละอุปสรรค </p>
+            <p><strong>รายละเอียด:</strong> เกม 2D Ball Adventure ที่ผู้เล่นจะได้ควบคุมบอลเพื่อเก็บเหรียญเเละกุญเเจเพื่อผ่านด่านต่อไปเเละหลบสิ่งกีดขวางภายในด่าน </p>
             
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <iframe src="https://youtu.be/52CTJadqZIY" allowfullscreen></iframe>
             </div>
         </div>
+        
         <div class="project-card">
-            <h3>การขึ้นโมเดลและทำแอนิเมชันตัวละคร</h3>
+            <h3>โปรเจกต์ผลงานเกมไฟนอล Asylum Escape</h3>
             <div>
-                <span class="tech-tag">Maya</span>
-                <span class="tech-tag">AdvancedSkeleton</span>
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
             </div>
-            <p><strong>หน้าที่รับผิดชอบ:</strong> 3D Modeling, Rigging, และทำแอนิเมชันการเดิน/วิ่ง</p>
-            <p><strong>รายละเอียด:</strong> การสร้างตัวละคร 3 มิติพร้อมใส่กระดูกเพื่อเตรียมนำไปใช้ต่อในเอนจินเกม</p>
+            <p><strong>หน้าที่รับผิดชอบ:</strong> เขียนระบบเกมเพลย์ พัซเซิลเเละระบบศัตรูในเกม, ออกเเบบแผนที่</p>
+            <p><strong>รายละเอียด:</strong> เกม Horror Puzzle ผู้เล่นจะได้รับบทเป็นบุคคลปริศนาที่มาติดอยู่ในโรงพยาบาลร้างเเละต้องหลบหนีคนไข้โรคจิตที่ค่อยจะเข้ามาทำร้ายโดยหารหัส 4 ตัวเพื่อเปิดประตูหนีออกจากสถานที่เเห่งนี้</p>
             
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+                <iframe src="https://youtu.be/Uy1KhhH0XYQ" allowfullscreen></iframe>
             </div>
         </div>
+        
+        </div>
+ <div class="project-card">
+            <h3>โปรเจกต์ผลงานคู่เกมไฟนอล Unknown Knight</h3>
+            <div>
+                <span class="tech-tag">Unity</span>
+                <span class="tech-tag">C#</span>
+            </div>
+            <p><strong>หน้าที่รับผิดชอบ:</strong> เป็นงานเกมคู่ หน้าที่คือ ระบบไดอาลอคที่สนทนากับ NPC ระบบล็อคเป้าศัตรูเเละจำกัดการเข้าโจมตีผู้เล่น ระบบฮีลเพิ่มเลือดให้กับผู้เล่น การเก็บไอเทม กุญเเจเพื่อผ่านด่าน </p>
+            <p><strong>รายละเอียด:</strong> เกม Unknown Knight เป็นเกมที่ผู้เล่นจะได้รับบทเป็นอัศวินที่ลืมตัวตนของตัวเองจากอุบัติเหตุต่อสู้กับมอนสเตอร์เเละต้องหาทางออกจากดันเจี้ยนเเละต่อสู้กับมอนสเตอร์ บอสของเกมเพื่อจบเกม </p>
+            
+            <div class="video-container">
+                <iframe src="https://youtu.be/Jb6T9YgOw3Q" allowfullscreen></iframe>
+            </div>
         </div>
 
+        </div>
+ <div class="project-card">
+            <h3>โปรเจกต์ผลงานกลุ่มคลิป After Effect มิวสิควิดีโอเพลง</h3>
+            <div>
+                <span class="tech-tag">After Effect</span>
+                <span class="tech-tag">Photoshop</span>
+            </div>
+            <p><strong>หน้าที่รับผิดชอบ:</strong> รับหน้าที่ทำฉากตอนอยู่บนรถไฟโดยการใส่การขยับให้ตัวละคร ฉากพื้นหลังเเละใส่เอฟเฟคสี ภาพให้โทนเข้ากับมิวสิควิดีโอเพลง </p>
+            <p><strong>รายละเอียด:</strong> เป็นผลงานกลุ่มที่ทำฉากมิวสิควิดีโอเพลง หลุดโลก โดยให้ตีโจทย์จากเนื้อเพลงเเละสร้างเป็นอนิเมชั่นโดยใช้โปรแกรม After Effect จากที่ได้เรียนมาในคลาสเรียน </p>
+            
+            <div class="video-container">
+                <iframe src="https://youtu.be/Jb6T9YgOw3Q" allowfullscreen></iframe>
+            </div>
+        </div>
+    
 </body>
 </html>

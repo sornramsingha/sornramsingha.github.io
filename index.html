@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <style>
+        /* --- รูปแบบพื้นฐานของเว็บ --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -20,7 +21,7 @@
             padding: 3rem 1rem;
         }
         .container {
-            max-width: 900px; /* ตรงนี้คือตัวกำหนดขนาดความกว้างรวม ถ้าอยากให้เล็กลง ลองเปลี่ยนเป็น 800px หรือ 700px */
+            max-width: 900px; 
             margin: auto;
             padding: 2rem;
         }
@@ -43,14 +44,11 @@
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
             margin-top: 15px;
-            /* ถ้าอยากจำกัดขนาดวิดีโอไม่ให้ใหญ่เกินไปแม้หน้าจอจะกว้าง สามารถเพิ่ม 2 บรรทัดล่างนี้ได้ */
-            /*max-width: 600px; */
-            /*margin-left: auto; margin-right: auto; */
         }
         .video-container iframe {
             position: absolute;
@@ -60,7 +58,8 @@
             height: 100%;
             border: 0;
         }
-        /* CSS สำหรับส่วนรูปภาพผลงาน */
+
+        /* --- ส่วนของแกลเลอรีรูปภาพ --- */
         .gallery-section {
             background: white;
             border-radius: 8px;
@@ -69,19 +68,76 @@
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* จัดเรียงอัตโนมัติ ให้อย่างน้อยกว้าง 250px */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
             margin-top: 15px;
         }
-        .gallery-grid img {
-            width: 100%;
-            height: auto;
+        .gallery-item {
+            cursor: pointer; /* เปลี่ยนเมาส์เป็นรูปมือเวลาชี้ */
+            position: relative;
             border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease; /* เพิ่มเอฟเฟกต์ตอนเอาเมาส์ชี้ */
         }
-        .gallery-grid img:hover {
-            transform: scale(1.05); /* ให้รูปขยายขึ้นนิดนึงตอนชี้เมาส์ */
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ทำให้รูปเต็มกรอบพอดี */
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05); /* ขยายรูปนิดนึงตอนชี้เมาส์ */
+        }
+        /* ซ่อนคำอธิบายไว้ก่อนตอนอยู่ในหน้ากริดปกติ */
+        .gallery-item .image-description {
+            display: none; 
+        }
+
+        /* --- ส่วนของ Lightbox (หน้าต่างป๊อปอัปขยายรูป) --- */
+        .lightbox {
+            display: none; /* ซ่อนไว้เป็นค่าเริ่มต้น */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* พื้นหลังสีดำโปร่งแสง */
+            backdrop-filter: blur(5px); /* เบลอพื้นหลังให้ดูหรูขึ้น */
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 75vh;
+            margin-top: 5vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        #lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ddd;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-btn:hover {
+            color: #bbb;
         }
     </style>
 </head>
@@ -150,12 +206,59 @@
         <div class="gallery-section">
             <h2>ผลงานภาพอื่นๆ (Artworks & Screenshots)</h2>
             <div class="gallery-grid">
-                <img src="MAYA_Pizza.png" alt="ผลงานไฟนอล MAYA ปั้นฉากร้านอาหาร">
-                <img src="image2.jpg" alt="ผลงานที่ 2">
-                <img src="image3.jpg" alt="ผลงานที่ 3">
-                <img src="image4.jpg" alt="ผลงานที่ 4">
+                
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="MAYA_Pizza.png" alt="ผลงานที่ 1">
+                    <div class="image-description">
+                        <strong>ภาพงานไฟนอล MAYA ปั้นฉากร้านอาหาร</strong><br>
+                        ปั้นสิ่งของประกอบฉากเเละตกเเต่งฉากร้านอาหารตามที่เราชอบเเละนำลง Unreal Engine เพื่อจัดเเสงไฟเเละจัดเเต่งให้สวยงาม
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="image2.jpg" alt="ผลงานที่ 2">
+                    <div class="image-description">
+                        <strong>UI Design สำหรับเกม Unknown Knight</strong><br>
+                        ออกแบบหน้าต่างช่องเก็บของ (Inventory) และหลอดเลือดให้ดูเป็นแนวแฟนตาซี
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="image3.jpg" alt="ผลงานที่ 3">
+                    <div class="image-description">
+                        <strong>Level Design - ฉากป่ามรณะ</strong><br>
+                        การจัดวางต้นไม้และแสงในฉากโดยใช้ Unity Engine เพื่อสร้างอารมณ์ลึกลับ
+                    </div>
+                </div>
+
             </div>
         </div>
 
-    </div> </body>
+    </div> 
+
+    <div id="myLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="expandedImg">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        function openLightbox(element) {
+            // ดึงข้อมูลรูปภาพและคำอธิบายจากกล่องที่โดนคลิก
+            var imgSrc = element.querySelector("img").src;
+            var descriptionHTML = element.querySelector(".image-description").innerHTML;
+            
+            // ส่งข้อมูลไปใส่ในหน้าต่าง Lightbox และแสดงผล
+            document.getElementById("expandedImg").src = imgSrc;
+            document.getElementById("lightbox-caption").innerHTML = descriptionHTML;
+            document.getElementById("myLightbox").style.display = "block";
+        }
+
+        function closeLightbox() {
+            // ปิดหน้าต่าง Lightbox
+            document.getElementById("myLightbox").style.display = "none";
+        }
+    </script>
+
+</body>
 </html>

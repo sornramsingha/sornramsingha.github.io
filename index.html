@@ -159,12 +159,13 @@
         /* --- วิดีโอหลักในการ์ด --- */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+            width: 80%; /* ลดขนาดความกว้างลงเหลือ 80% */
+            margin: 20px auto 0; /* จัดกึ่งกลาง (บน 20, ซ้ายขวา auto, ล่าง 0) */
+            aspect-ratio: 16 / 9; /* คุมสัดส่วน 16:9 แบบมาตรฐานใหม่ */
             border-radius: 8px;
-            margin-top: 20px;
             border: 1px solid #334155;
             overflow: hidden;
+            background-color: #000;
         }
         .video-container iframe {
             position: absolute;
@@ -193,7 +194,7 @@
             overflow: hidden;
             border: 2px solid transparent;
             transition: all 0.3s ease;
-            aspect-ratio: 16 / 9; /* ล็อคสัดส่วนให้เท่ากันทุกรูป */
+            aspect-ratio: 16 / 9; 
             background: #000;
         }
         .gallery-item img {
@@ -212,7 +213,6 @@
             opacity: 1;
         }
         
-        /* ปุ่ม Play จำลองสำหรับ Video Gallery */
         .play-icon {
             position: absolute;
             top: 50%;
@@ -221,7 +221,7 @@
             font-size: 3rem;
             color: rgba(255, 255, 255, 0.8);
             text-shadow: 0 0 10px rgba(0,0,0,0.8);
-            pointer-events: none; /* ไม่ให้ขัดจังหวะการคลิกรูป */
+            pointer-events: none; 
         }
         .gallery-item:hover .play-icon {
             color: #00f0ff;
@@ -230,7 +230,7 @@
         
         .gallery-item .item-data { display: none; }
 
-        /* --- ส่วนของ Lightbox (รองรับทั้งรูปและวิดีโอ) --- */
+        /* --- ส่วนของ Lightbox --- */
         .lightbox {
             display: none;
             position: fixed;
@@ -247,7 +247,6 @@
             max-width: 900px;
             margin-top: 5vh;
         }
-        /* รูปภาพใน Lightbox */
         #lightbox-img {
             width: 100%;
             max-height: 70vh;
@@ -256,10 +255,9 @@
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
             display: none;
         }
-        /* วิดีโอใน Lightbox */
         #lightbox-video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             border-radius: 8px;
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
@@ -328,14 +326,14 @@
             </div>
         </div>
 
-              <div class="content-box">
+        <div class="content-box">
             <div style="width: 100%;">
                 <h3 style="color: #a855f7; margin-bottom: 5px;">Operations Assistant (Family Business)</h3>
                 <p style="color: #64748b; margin-top: 0; font-size: 0.9rem;">2022 - ปัจจุบัน | ร้านอาหารอีสาน (จิ้มจุ่มพหลโยธิน ซ.2)</p>
                 <ul style="padding-left: 20px;">
                     <li><strong>Customer Service & Problem Solving:</strong> ให้บริการลูกค้า จัดการคิวและออเดอร์ รวมถึงแก้ไขปัญหาเฉพาะหน้าเพื่อให้ลูกค้าได้รับประสบการณ์ที่ดีที่สุด (User Experience)</li>
                     <li><strong>Time Management & Working Under Pressure:</strong> บริหารจัดการเวลาและรับมือกับสถานการณ์ที่เร่งรีบ โดยเฉพาะในช่วงวันศุกร์หรือวันหยุดยาวที่ร้านจะมีความวุ่นวายและลูกค้าหนาแน่นเป็นพิเศษ</li>
-                    <li><strong>Team Collaboration:</strong> สื่อสารและทำงานร่วมกับสมาชิกในครอบครัวและพนักงานในร้านเพื่อให้ระบบการทำงาน (Operations) </li>
+                    <li><strong>Team Collaboration:</strong> สื่อสารและทำงานร่วมกับสมาชิกในครอบครัวและพนักงานในร้านเพื่อให้ระบบการทำงาน (Operations) ลื่นไหล</li>
                 </ul>
             </div>
         </div>
@@ -399,7 +397,7 @@
         </div>
 
         <div class="gallery-section">
-            <h2>Video Gameplay Gallery (แกลเลอรีวิดีโอ)</h2>
+            <h2>Video Gallery (วิดีโอผลงานเพิ่มเติม)</h2>
             <div class="gallery-grid">
                 
                 <div class="gallery-item" onclick="openLightbox('video', 'https://www.youtube.com/embed/KoOXa3TkdAM?autoplay=1', '<strong>Preview Gameplay Ramen Rider (On Progress) </strong><br>ผลงานเกมกลุ่ม เป็นการทดสอบระบบเกมเพลย์ภายในเกมที่กำลังทำ')">
@@ -412,13 +410,13 @@
                     <div class="play-icon">▶</div>
                 </div>
 
-                 <div class="gallery-item" onclick="openLightbox('video', 'https://www.youtube.com/embed/fJlkZObjmPs?si=uZBtlb7vNNS_W01Y?autoplay=1', '<strong>MAYA Rigging 3D Model</strong><br>โปรเจกต์ MAYA Rigging 3D Model ปั้นโมเดลเเละใส่ตัวคอนโทลเลอเพื่อให้โมเดลสามารถขยับได้')">
-                    <img src="https://img.youtube.com/vi/fJlkZObjmPs?si=uZBtlb7vNNS_W01Y/maxresdefault.jpg" alt="Video 2">
+                 <div class="gallery-item" onclick="openLightbox('video', 'https://www.youtube.com/embed/fJlkZObjmPs?autoplay=1', '<strong>MAYA Rigging 3D Model</strong><br>โปรเจกต์ MAYA Rigging 3D Model ปั้นโมเดลเเละใส่ตัวคอนโทลเลอเพื่อให้โมเดลสามารถขยับได้')">
+                    <img src="https://img.youtube.com/vi/fJlkZObjmPs/maxresdefault.jpg" alt="MAYA Rigging 3D Model 1">
                     <div class="play-icon">▶</div>
                 </div>
 
-                                <div class="gallery-item" onclick="openLightbox('video', 'https://www.youtube.com/embed/198LvKp2If4?si=BMuhRpuYDhKuJMk6?autoplay=1', '<strong>MAYA Rigging 3D Model</strong><br>ผลงานการ Paint weight เเละใส่กระดูกให้กับโมเดลเพื่อให้ขยับได้ตามส่วนที่ Paint weight ให้ดูเป็๋นธรรมชาติ ไม่เเข็งจนเกินไป')">
-                    <img src="https://img.youtube.com/vi/198LvKp2If4?si=BMuhRpuYDhKuJMk6/maxresdefault.jpg" alt="Video 2">
+                <div class="gallery-item" onclick="openLightbox('video', 'https://www.youtube.com/embed/198LvKp2If4?autoplay=1', '<strong>MAYA Rigging 3D Model</strong><br>ผลงานการ Paint weight เเละใส่กระดูกให้กับโมเดลเพื่อให้ขยับได้ตามส่วนที่ Paint weight ให้ดูเป็นธรรมชาติ ไม่เเข็งจนเกินไป')">
+                    <img src="https://img.youtube.com/vi/198LvKp2If4/maxresdefault.jpg" alt="MAYA Rigging 3D Model 2">
                     <div class="play-icon">▶</div>
                 </div>
 
@@ -426,7 +424,7 @@
         </div>
 
         <div class="gallery-section">
-            <h2>Artworks & Screenshots (แกลเลอรีภาพ)</h2>
+            <h2>Artworks & More (แกลเลอรีภาพเพิ่มเติม)</h2>
             <div class="gallery-grid">
                 
                <div class="gallery-item" onclick="openLightbox('image', 'MAYA_Pizza.png', '<strong>ภาพงานไฟนอล MAYA</strong><br>ปั้นฉากร้านอาหารและตกแต่งแสง')">
@@ -466,11 +464,9 @@
             document.getElementById("myLightbox").style.display = "block";
             document.getElementById("lightbox-caption").innerHTML = descriptionHTML;
 
-            // ซ่อนทั้งรูปและวิดีโอก่อน
             document.getElementById("lightbox-img").style.display = "none";
             document.getElementById("lightbox-video-container").style.display = "none";
 
-            // ตรวจสอบว่าคลิกรูปหรือวิดีโอ
             if (type === 'image') {
                 document.getElementById("lightbox-img").src = sourceUrl;
                 document.getElementById("lightbox-img").style.display = "block";
@@ -481,12 +477,10 @@
         }
 
         function closeLightbox(event) {
-            // ป้องกันการปิดถ้าคลิกโดนตัวรูปภาพหรือวิดีโอโดยตรง
             if(event.target.id === 'lightbox-img' || event.target.id === 'lightbox-video-container') return;
 
             document.getElementById("myLightbox").style.display = "none";
             
-            // ล้าง source เพื่อให้วิดีโอหยุดเล่นเมื่อปิดหน้าต่าง
             document.getElementById("lightbox-video").src = ""; 
             document.getElementById("lightbox-img").src = ""; 
         }
